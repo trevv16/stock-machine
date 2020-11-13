@@ -59,3 +59,22 @@ class Portfolio:
             self.transfer_history.append(history)
             print('Change: $-', amount)
             print('New Cash Balance: $', self.cash_balance)
+
+    def view_portfolio(self):
+        """Displays the details of the portfolio
+        """
+
+        print("--------------------------------\n")
+        print("{}'s Portfolio\n").format(self.name)
+        print("Age: {}\n").format(self.age)
+        print("--------------------------------\n")
+        print("Cash Balance: {}\n").format(self.cash_balance)
+        print("Total Equity: {}\n").format(self.total_equity)
+        print("Account Value: {}\n").format(self.total_value)
+        print("--------------------------------\n")
+        print("         Stock History          \n")
+        print("--------------------------------\n")
+        # for stock in self.shares:
+        #     print("stock 1")
+        #     print("stock 2")
+        #     print("stock 3")
