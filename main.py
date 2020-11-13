@@ -2,14 +2,6 @@ import importlib
 import time
 import datetime
 
-# Dict to create the main menu
-main_menu = dict()
-main_menu["A"] = "View Portfolio"
-main_menu["B"] = "View Transfer History"
-main_menu["C"] = "View Transaction History"
-main_menu["D"] = "Make Transfer"
-main_menu["E"] = "Search Stock"
-
 
 class Stock:
     def __init__(self, _company_name, _ticker_symbol):
@@ -171,11 +163,20 @@ main_portfolio = Portfolio()
 
 
 def print_menu():
+    # Dict to create the main menu
+    main_menu = dict()
+    main_menu["A"] = "View Portfolio"
+    main_menu["B"] = "View Transfer History"
+    main_menu["C"] = "View Transaction History"
+    main_menu["D"] = "Make Transfer"
+    main_menu["E"] = "Search Stock"
+
     print("\n\n--------------------------------")
     print("       Stock Machine Menu      ")
     print("--------------------------------")
-    for key, value in main_menu:
-        print("{0}.  {1}").format(key, value)
+    for key in main_menu:
+        print(key, main_menu[key])
+    print("--------------------------------\n")
 
     eval_input()
 
