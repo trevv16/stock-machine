@@ -60,11 +60,12 @@ class Portfolio:
             print('Change: $-', amount)
             print('New Cash Balance: $', self.cash_balance)
 
+    # TODO: Add stock details to view
     def view_portfolio(self):
         """Displays the details of the portfolio
         """
 
-        print("--------------------------------\n")
+        print("\n\n--------------------------------\n")
         print("{}'s Portfolio\n").format(self.name)
         print("Age: {}\n").format(self.age)
         print("--------------------------------\n")
@@ -83,7 +84,7 @@ class Portfolio:
         """Displays the transfer history of the portfolio
         """
 
-        print("--------------------------------\n")
+        print("\n\n--------------------------------\n")
         print("{}'s Portfolio\n").format(self.name)
         print("       Transaction History      \n")
         print("--------------------------------\n")
@@ -91,4 +92,23 @@ class Portfolio:
             print("{}").format(transfer.transfer_type)
             print("Amount:  ${}").format(transfer.amount)
             print("Balance: ${}").format(transfer.balance)
+            print("--------------------------------\n")
+
+    def view_transaction_history(self):
+        """Displays the transaction history of the portfolio
+        """
+
+        print("\n\n--------------------------------\n")
+        print("{}'s Portfolio\n").format(self.name)
+        print("       Transaction History      \n")
+        print("--------------------------------\n")
+        for transaction in self.transaction_history:
+            print("{}").format(transaction.stock_name)
+            print("{}").format(transaction.transaction_type)
+            print("${}").format(transaction.stock_price)
+            print("{} Shares").format(transaction.num_of_shares)
+            print("Total:                   ${}").format(transaction.total)
+            print("Total Stock Equity:      ${}").format(
+                transaction.total_stock_equity)
+            print("Total Profit/(Loss):     ${}").format(transaction.num_of_shares)
             print("--------------------------------\n")
