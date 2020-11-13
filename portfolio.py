@@ -78,3 +78,17 @@ class Portfolio:
         #     print("stock 1")
         #     print("stock 2")
         #     print("stock 3")
+
+     def view_transfer_history(self):
+        """Displays the transfer history of the portfolio
+        """
+
+        print("--------------------------------\n")
+        print("{}'s Portfolio\n").format(self.name)
+        print("       Transaction History      \n")
+        print("--------------------------------\n")
+        for transfer in self.transfer_history:
+            print("{}").format(transfer.transfer_type)
+            print("Amount:  ${}").format(transfer.amount)
+            print("Balance: ${}").format(transfer.balance)
+            print("--------------------------------\n")
