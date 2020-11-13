@@ -79,7 +79,7 @@ class Portfolio:
         #     print("stock 2")
         #     print("stock 3")
 
-     def view_transfer_history(self):
+    def view_transfer_history(self):
         """Displays the transfer history of the portfolio
         """
 
