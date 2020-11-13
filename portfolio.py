@@ -1,7 +1,23 @@
 import datetime
+from pythonlangutil.overload import Overload, signature
 
 
 class Portfolio:
+    @Overload
+    @signature()
+    def __init__(self):
+        self.name = None
+        self.dobYear = None
+        self.age = None
+        self.cash_balance = 0.00
+        self.total_equity = 0.00
+        self.total_value = 0.00
+        self.shares = []
+        self.transfer_history = []
+        self.transaction_history = []
+
+    @__init__.overload
+    @signature()
     def __init__(self, _name, birthYear):
         self.name = _name
         self.dobYear = birthYear
