@@ -3,8 +3,6 @@ from pythonlangutil.overload import Overload, signature
 
 
 class Portfolio:
-    @Overload
-    @signature()
     def __init__(self):
         self.name = None
         self.dobYear = None
@@ -16,9 +14,7 @@ class Portfolio:
         self.transfer_history = []
         self.transaction_history = []
 
-    @__init__.overload
-    @signature()
-    def __init__(self, _name, birthYear):
+    def setup(self, _name: "string", birthYear: "int"):
         self.name = _name
         self.dobYear = birthYear
 
@@ -31,7 +27,7 @@ class Portfolio:
         self.transfer_history = []
         self.transaction_history = []
 
-    def record_transfer(self, transfer_type, _amount, _balance):
+    def record_transfer(self, transfer_type: "string", _amount: "float", _balance: "float"):
         """Records a transfer as a deposit or withdrawal and final balance.
 
         Args:
@@ -51,7 +47,7 @@ class Portfolio:
 
         return transfer
 
-    def make_transfer(self, is_deposit, amount):
+    def make_transfer(self, is_deposit: "bool", amount: "float"):
         """Transfers between user's trading account and bank account,
         and records transaction details.
 
