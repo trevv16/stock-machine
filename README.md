@@ -15,9 +15,9 @@ A basic python command line program to simulate the major functions of a individ
 
 # Architecture
 
-main.py - main function
-portfolio.py - portfolio class
-stock.py - "company" stock class
+- main.py -> main function
+- portfolio.py -> portfolio class
+- stock.py -> "company" stock class
 
 ## Portfolio (Class)
  - name
