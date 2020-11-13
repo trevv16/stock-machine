@@ -15,7 +15,9 @@ A basic python command line program to simulate the major functions of a individ
 
 # Architecture
 
-Port
+main.py - main function
+portfolio.py - portfolio class
+stock.py - "company" stock class
 
 ## Portfolio (Class)
  - name
@@ -53,6 +55,6 @@ Port
     - day change
 
 ### Methods
- - view_stock()
- - view_stock_history()
+- view_stock()
+- view_stock_history()
 
