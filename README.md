@@ -15,6 +15,8 @@ A basic python command line program to simulate the major functions of a individ
 
 # Architecture
 
+Port
+
 ## Portfolio (Class)
  - name
  - age
@@ -29,16 +31,16 @@ A basic python command line program to simulate the major functions of a individ
     - total spent
     - total stock equity
 
-    ### Methods
-    - make_transfer() - initiates transfer from user's bank to brokerage account
-    - record_transfer() - saves transfer data to history
-    - view_transfer_history() - displays tranfer history
-    
-    - make_purchase() - creates purchase of stock
-    - record_purchase() - 
-    - view_transaction_history()
+### Methods
+ - make_transfer() - initiates transfer from user's bank to brokerage account
+ - record_transfer() - saves transfer data to history
+ - view_transfer_history() - displays tranfer history
 
-    - view_portfolio()
+ - make_transaction() - creates purchase of stock
+ - record_transaction() - saves purchase data to history
+ - view_transaction_history() - displays transaction history
+
+ - view_portfolio() - displays the highlighted data of the portfolio
 
 ## Stock (Class)
  - ticker symbol
@@ -51,6 +53,6 @@ A basic python command line program to simulate the major functions of a individ
     - day change
 
 ### Methods
-- view_stock()
-- view_stock_history()
+ - view_stock()
+ - view_stock_history()
 
