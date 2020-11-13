@@ -35,7 +35,7 @@ class Portfolio:
 
         return transfer
 
-    def transfer_funds(self, is_deposit, amount):
+    def make_transfer(self, is_deposit, amount):
         """Transfers between user's trading account and bank account,
         and records transaction details.
 
