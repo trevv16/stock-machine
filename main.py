@@ -103,7 +103,7 @@ class Portfolio:
             print(f'Change: $+{amount:.2f}')
             print(f'New {self.get_cash_balance()}')
         else:
-            amount *= -1
+            amount *= -1.00
             self.cash_balance += amount
             history = self.record_transfer(
                 "Withdrawal", amount, self.cash_balance)
@@ -150,8 +150,8 @@ class Portfolio:
         """
 
         print("\n\n--------------------------------")
-        print(f"{self.name}'s Portfolio")
-        print("       Transaction History      ")
+        print(f"    {self.name}'s Portfolio         ")
+        print("         Transaction History      ")
         print("--------------------------------")
         for transaction in self.transaction_history:
             print(f"{transaction.stock_name}")
@@ -178,6 +178,7 @@ def print_menu():
     main_menu["C"] = "View Transaction History"
     main_menu["D"] = "Make Transfer"
     main_menu["E"] = "Search Stock"
+    main_menu["Q"] = "Quit"
 
     print("\n\n--------------------------------")
     print("       Stock Machine Menu      ")
@@ -192,41 +193,54 @@ def print_menu():
 def eval_input():
     user_input = input("Enter your choice: ")
 
-    if (user_input.upper() == "A"):
+    if (user_input.upper() == "A"):  # view portfolio
         main_portfolio.view_portfolio()
         print("\n\n--------------------------------")
         print(r"--------------------------------")
         time.sleep(3)
         print_menu()
-    elif (user_input.upper() == "B"):
+    elif (user_input.upper() == "B"):  # view transfer history
         main_portfolio.view_transfer_history()
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
-    elif (user_input.upper() == "C"):
+        print(r"--------------------------------")
+        time.sleep(3)
+        print_menu()
+    elif (user_input.upper() == "C"):  # view transaction history
         main_portfolio.view_transaction_history()
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
-    elif (user_input.upper() == "D"):
+        print(r"--------------------------------")
+        time.sleep(3)
+        print_menu()
+    elif (user_input.upper() == "D"):  # make transfer
         transfer_type = input(
             "Enter deposit type: A. Deposit   B. Withdrawal ")
         transfer_amount = input("Enter transfer amount: $")
+        transfer_amount = float(transfer_amount)
 
-        if (transfer_type == "A"):
+        if (transfer_type.upper() == "A"):
             main_portfolio.make_transfer(True, transfer_amount)
         else:
             main_portfolio.make_transfer(False, transfer_amount)
 
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
-    elif (user_input.upper() == "E"):
+        print(r"--------------------------------")
+        time.sleep(3)
+        print_menu()
+    elif (user_input.upper() == "E"):  # search stock
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
+        print(r"--------------------------------")
+        time.sleep(3)
+        print_menu()
+    elif (user_input.upper() == "Q"):  # quit
+        pass
+        print("\n\n--------------------------------")
+        print(r"--------------------------------")
     else:
         print("There was an issue with your input try again.")
-        time.sleep(2)
-        print_menu()
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
+        print(r"--------------------------------")
+        time.sleep(1)
+        print_menu()
 
 
 def main():
