@@ -77,6 +77,15 @@ class Portfolio:
 
         return transfer
 
+    def get_cash_balance(self):
+        """Returns the cash balance of the portfolio
+        cash balance represents uninvested funds in the account
+
+        Returns:
+            (string): a string containing the cash balance as a fixed 2 digit decimal
+        """
+        return f"Cash Balance: ${self.cash_balance:.2f}"
+
     def make_transfer(self, is_deposit: "bool", amount: "float"):
         """Transfers between user's trading account and bank account,
         and records transaction details.
@@ -91,16 +100,16 @@ class Portfolio:
             history = self.record_transfer(
                 "Deposit", amount, self.cash_balance)
             self.transfer_history.append(history)
-            print('Change: $+', amount)
-            print('New Cash Balance: $', self.cash_balance)
+            print(f'Change: $+{amount:.2f}')
+            print(f'New {self.get_cash_balance()}')
         else:
             amount *= -1
             self.cash_balance += amount
             history = self.record_transfer(
                 "Withdrawal", amount, self.cash_balance)
             self.transfer_history.append(history)
-            print('Change: $-', amount)
-            print('New Cash Balance: $', self.cash_balance)
+            print(f'Change: $+{amount:.2f}')
+            print(f'New {self.get_cash_balance()}')
 
     # TODO: Add stock details to view
     def view_portfolio(self):
@@ -108,12 +117,12 @@ class Portfolio:
         """
 
         print("\n\n--------------------------------")
-        print("{}'s Portfolio").format(self.name)
-        print("Age: {}").format(self.age)
+        print(f"{self.name}'s Portfolio")
+        print(f"Age: {self.age}")
         print("--------------------------------")
-        print("Cash Balance:    ${:.2f}").format(self.cash_balance)
-        print("Total Equity:    ${:.2f}").format(self.total_equity)
-        print("Account Value:   ${:.2f}").format(self.total_value)
+        print(f"Cash Balance:    ${self.cash_balance:.2f}")
+        print(f"Total Equity:    ${self.total_equity:.2f}")
+        print(f"Account Value:   ${self.total_value:.2f}")
         print("--------------------------------")
         print("         Stock History          ")
         print("--------------------------------")
@@ -127,13 +136,13 @@ class Portfolio:
         """
 
         print("\n\n--------------------------------")
-        print("{}'s Portfolio").format(self.name)
+        print(f"{self.name}'s Portfolio")
         print("       Transaction History      ")
         print("--------------------------------")
         for transfer in self.transfer_history:
-            print("{}").format(transfer.transfer_type)
-            print("Amount:  ${:.2f}").format(transfer.amount)
-            print("Balance: ${:.2f}").format(transfer.balance)
+            print(f"{transfer.transfer_type}")
+            print(f"Amount:  ${transfer.amount:.2f}")
+            print(f"Balance: ${transfer.balance:.2f}")
             print("--------------------------------")
 
     def view_transaction_history(self):
@@ -141,19 +150,18 @@ class Portfolio:
         """
 
         print("\n\n--------------------------------")
-        print("{}'s Portfolio").format(self.name)
+        print(f"{self.name}'s Portfolio")
         print("       Transaction History      ")
         print("--------------------------------")
         for transaction in self.transaction_history:
-            print("{}").format(transaction.stock_name)
-            print("{}").format(transaction.transaction_type)
-            print("${:.2f}").format(transaction.stock_price)
-            print("{} Shares").format(transaction.num_of_shares)
-            print("Total:                   ${:.2f}").format(transaction.total)
-            print("Total Stock Equity:      ${:.2f}").format(
-                transaction.total_stock_equity)
+            print(f"{transaction.stock_name}")
+            print(f"{transaction.transaction_type}")
+            print(f"${transaction.stock_price:.2f}")
+            print(f"{transaction.num_of_shares} Shares")
+            print(f"Total:                   ${transaction.total:.2f}")
             print(
-                "Total Profit/(Loss):     ${:.2f}").format(transaction.num_of_shares)
+                f"Total Stock Equity:      ${transaction.total_stock_equity:.2f}")
+            print(f"Total Profit/(Loss):     ${transaction.num_of_shares:.2f}")
             print("--------------------------------")
 
 
@@ -187,16 +195,18 @@ def eval_input():
     if (user_input.upper() == "A"):
         main_portfolio.view_portfolio()
         print("\n\n--------------------------------")
-        print(r"\n\--------------------------------")
-    elif (user_input == "B"):
+        print(r"--------------------------------")
+        time.sleep(3)
+        print_menu()
+    elif (user_input.upper() == "B"):
         main_portfolio.view_transfer_history()
         print("\n\n--------------------------------")
         print(r"\n\--------------------------------")
-    elif (user_input == "C"):
+    elif (user_input.upper() == "C"):
         main_portfolio.view_transaction_history()
         print("\n\n--------------------------------")
         print(r"\n\--------------------------------")
-    elif (user_input == "D"):
+    elif (user_input.upper() == "D"):
         transfer_type = input(
             "Enter deposit type: A. Deposit   B. Withdrawal ")
         transfer_amount = input("Enter transfer amount: $")
@@ -208,7 +218,7 @@ def eval_input():
 
         print("\n\n--------------------------------")
         print(r"\n\--------------------------------")
-    elif (user_input == "E"):
+    elif (user_input.upper() == "E"):
         print("\n\n--------------------------------")
         print(r"\n\--------------------------------")
     else:
